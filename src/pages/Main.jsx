@@ -3,7 +3,6 @@ import Categorias from './Categorias';
 import ProductCard from '../components/ProductCard';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 
-
 export default class Main extends Component {
   constructor() {
     super();
@@ -42,33 +41,35 @@ export default class Main extends Component {
       >
         Digite algum termo de pesquisa ou escolha uma categoria.
         <Categorias />
-      <div>
-        <input
-          type="text"
-          data-testid="query-input"
-          onChange={ this.onHandleChange }
-          value={ query }
-        />
-        <button
-          type="button"
-          data-testid="query-button"
-          onClick={ this.onHandleClick }
-        >
-          Search
-        </button>
-        {products.length === 0
-          ? (resultRender)
-          : (
-            <div>
-              {products.map(({ id, title, price, thumbnail }) => (
-                <ProductCard
-                  key={ id }
-                  title={ title }
-                  price={ price }
-                  thumbnail={ thumbnail }
-                />))}
-            </div>
-          )}
+
+        <div>
+          <input
+            type="text"
+            data-testid="query-input"
+            onChange={ this.onHandleChange }
+            value={ query }
+          />
+          <button
+            type="button"
+            data-testid="query-button"
+            onClick={ this.onHandleClick }
+          >
+            Search
+          </button>
+          {products.length === 0
+            ? (resultRender)
+            : (
+              <div>
+                {products.map(({ id, title, price, thumbnail }) => (
+                  <ProductCard
+                    key={ id }
+                    title={ title }
+                    price={ price }
+                    thumbnail={ thumbnail }
+                  />))}
+              </div>
+            )}
+        </div>
       </div>
     );
   }
