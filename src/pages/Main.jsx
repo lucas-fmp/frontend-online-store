@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 
@@ -36,6 +37,12 @@ export default class Main extends Component {
         </div>);
     return (
       <div>
+        <Link
+          to="/shopping-cart"
+          data-testid="shopping-cart-button"
+        >
+          Carrinho
+        </Link>
         <input
           type="text"
           data-testid="query-input"
