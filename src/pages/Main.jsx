@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Categorias from './Categorias';
 import ProductCard from '../components/ProductCard';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 
@@ -22,7 +23,7 @@ export default class Main extends Component {
   onHandleClick = async () => {
     const { query } = this.state;
     const data = await getProductsFromCategoryAndQuery(query);
-    this.setState({ products: data, searched: true });
+    this.setState({ products: data.results, searched: true });
   }
 
   render() {
@@ -43,6 +44,9 @@ export default class Main extends Component {
         >
           Carrinho
         </Link>
+        <div>
+          <Categorias />
+        </div>
         <input
           type="text"
           data-testid="query-input"
