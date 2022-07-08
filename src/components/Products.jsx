@@ -29,6 +29,7 @@ export default class Products extends Component {
           Array.isArray(result) ? result.map(({ id, title, price, thumbnail }) => (
             <ProductCard
               key={ id }
+              id={ id }
               title={ title }
               price={ price }
               thumbnail={ thumbnail }
