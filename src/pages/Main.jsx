@@ -41,7 +41,9 @@ export default class Main extends Component {
   }
 
   render() {
-    const { products, query, searched, isFiltered, filteredProducts } = this.state;
+    const {
+      products, query, searched, isFiltered, filteredProducts,
+    } = this.state;
     return (
       <div>
         <Link
