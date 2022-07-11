@@ -8,7 +8,7 @@ export default class ProductDetails extends Component {
     let gettingProductsLocalStorage = JSON.parse(localStorage.getItem('cartItems'));
 
     if (!gettingProductsLocalStorage) {
-      gettingProductsLocalStorage = JSON.stringify(product);
+      gettingProductsLocalStorage = JSON.stringify([product]);
       localStorage.setItem('cartItems', gettingProductsLocalStorage);
     } else {
       gettingProductsLocalStorage = [...gettingProductsLocalStorage, product];
