@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getItemFromId } from '../services/api';
+import ProductDetails from '../components/ProductDetails';
 
 export default class ProductPage extends Component {
   constructor() {
@@ -23,7 +24,7 @@ export default class ProductPage extends Component {
     return (
       <div>
         {!loading
-        && <h2 data-testid="product-detail-name">{product.title}</h2>}
+        && <ProductDetails product={ product } />}
       </div>
     );
   }
