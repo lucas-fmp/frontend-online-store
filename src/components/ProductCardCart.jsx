@@ -61,7 +61,6 @@ export default class ProductCardCart extends Component {
 ProductCardCart.propTypes = {
   id: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  quantity: PropTypes.number.isRequired,
   thumbnail: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
