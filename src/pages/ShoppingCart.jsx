@@ -11,7 +11,7 @@ export default class ShoppingCart extends Component {
 
   componentDidMount() {
     const gettingProductsLocalStorage = JSON.parse(localStorage.getItem('cartItems'));
-    if (gettingProductsLocalStorage.length > 0) {
+    if (gettingProductsLocalStorage !== null) {
       this.setState({ products: gettingProductsLocalStorage });
     }
   }
