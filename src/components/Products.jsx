@@ -24,6 +24,7 @@ export default class Products extends Component {
   addingProductToCart = ({ target }) => {
     const { id } = target;
     const result = this.validationProducts();
+    console.log(result);
     const filterCart = result.filter((item) => item.id === id);
     filterCart[0].quantity = 1;
     let gettingProductsLocalStorage = JSON.parse(localStorage.getItem('cartItems'));

@@ -2,13 +2,28 @@ import React, { Component } from 'react';
 import ProductCardCart from '../components/ProductCardCart';
 
 export default class ShoppingCart extends Component {
-  render() {
+  constructor() {
+    super();
+    this.state = {
+      products: [],
+    };
+  }
+
+  componentDidMount() {
     const gettingProductsLocalStorage = JSON.parse(localStorage.getItem('cartItems'));
+    if (gettingProductsLocalStorage.length > 0) {
+      this.setState({ products: gettingProductsLocalStorage });
+    }
+  }
+
+  render() {
+    const { products } = this.state;
+
     return (
       <div>
         {
-          gettingProductsLocalStorage ? (
-            gettingProductsLocalStorage
+          products.length > 0 ? (
+            products
               .map(({ id, title, price, thumbnail, quantity }, index) => (
                 <div key={ index }>
                   <ProductCardCart
