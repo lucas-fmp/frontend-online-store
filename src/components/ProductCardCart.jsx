@@ -13,8 +13,11 @@ export default class ProductCardCart extends Component {
 
   increaseQuantity = () => {
     const { quantity } = this.state;
+    const { availableQuantity } = this.props;
     const newQuantity = quantity + 1;
-    this.setState({ quantity: newQuantity });
+    if (newQuantity <= availableQuantity) {
+      this.setState({ quantity: newQuantity });
+    }
   }
 
   decreaseQuantity = () => {
@@ -59,6 +62,7 @@ export default class ProductCardCart extends Component {
 }
 
 ProductCardCart.propTypes = {
+  availableQuantity: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   thumbnail: PropTypes.string.isRequired,
