@@ -43,25 +43,27 @@ export default class Products extends Component {
     return (
       <div>
         {
-          Array.isArray(result) ? result.map(({ id, title, price, thumbnail }) => (
-            <div key={ id }>
-              <ProductCard
-                key={ id }
-                id={ id }
-                title={ title }
-                price={ price }
-                thumbnail={ thumbnail }
-              />
-              <button
-                type="button"
-                data-testid="product-add-to-cart"
-                id={ id }
-                onClick={ this.addingProductToCart }
-              >
-                Adicionar ao carrinho
-              </button>
-            </div>
-          )) : result
+          Array.isArray(result) ? result
+            .map(({ id, title, price, thumbnail, shipping }) => (
+              <div key={ id }>
+                <ProductCard
+                  key={ id }
+                  id={ id }
+                  title={ title }
+                  price={ price }
+                  thumbnail={ thumbnail }
+                  shipping={ shipping }
+                />
+                <button
+                  type="button"
+                  data-testid="product-add-to-cart"
+                  id={ id }
+                  onClick={ this.addingProductToCart }
+                >
+                  Adicionar ao carrinho
+                </button>
+              </div>
+            )) : result
         }
       </div>
     );
