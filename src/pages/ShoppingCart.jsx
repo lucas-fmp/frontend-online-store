@@ -25,7 +25,10 @@ export default class ShoppingCart extends Component {
         {
           products.length > 0 ? (
             products
-              .map(({ id, title, price, thumbnail, quantity }, index) => (
+              .map(({
+                id, title, price, thumbnail,
+                quantity, available_quantity: availableQuantity,
+              }, index) => (
                 <div key={ index }>
                   <ProductCardCart
                     key={ id }
@@ -34,6 +37,7 @@ export default class ShoppingCart extends Component {
                     price={ price }
                     thumbnail={ thumbnail }
                     quantity={ quantity }
+                    availableQuantity={ availableQuantity }
                   />
                 </div>
               ))

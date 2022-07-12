@@ -24,7 +24,6 @@ export default class Products extends Component {
   addingProductToCart = ({ target }) => {
     const { id } = target;
     const result = this.validationProducts();
-    console.log(result);
     const filterCart = result.filter((item) => item.id === id);
     filterCart[0].quantity = 1;
     let gettingProductsLocalStorage = JSON.parse(localStorage.getItem('cartItems'));
@@ -71,7 +70,6 @@ export default class Products extends Component {
 }
 
 Products.propTypes = {
-  // cartItems: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   filteredProducts: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
