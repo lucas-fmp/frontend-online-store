@@ -21,19 +21,47 @@ export default class Products extends Component {
     );
   };
 
+  addingProductToCart = ({ target }) => {
+    const { id } = target;
+    const result = this.validationProducts();
+    console.log(result);
+    const filterCart = result.filter((item) => item.id === id);
+    filterCart[0].quantity = 1;
+    let gettingProductsLocalStorage = JSON.parse(localStorage.getItem('cartItems'));
+
+    if (!gettingProductsLocalStorage) {
+      gettingProductsLocalStorage = JSON.stringify(filterCart);
+      localStorage.setItem('cartItems', gettingProductsLocalStorage);
+    } else {
+      gettingProductsLocalStorage = [...gettingProductsLocalStorage, filterCart[0]];
+      localStorage.setItem('cartItems', JSON.stringify(gettingProductsLocalStorage));
+    }
+  }
+
   render() {
     const result = this.validationProducts();
     return (
       <div>
         {
           Array.isArray(result) ? result.map(({ id, title, price, thumbnail }) => (
-            <ProductCard
-              key={ id }
-              id={ id }
-              title={ title }
-              price={ price }
-              thumbnail={ thumbnail }
-            />)) : result
+            <div key={ id }>
+              <ProductCard
+                key={ id }
+                id={ id }
+                title={ title }
+                price={ price }
+                thumbnail={ thumbnail }
+              />
+              <button
+                type="button"
+                data-testid="product-add-to-cart"
+                id={ id }
+                onClick={ this.addingProductToCart }
+              >
+                Adicionar ao carrinho
+              </button>
+            </div>
+          )) : result
         }
       </div>
     );
@@ -41,18 +69,15 @@ export default class Products extends Component {
 }
 
 Products.propTypes = {
-  filteredProducts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  // cartItems: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  filteredProducts: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  })).isRequired,
   isFiltered: PropTypes.bool.isRequired,
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  products: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  })).isRequired,
   searched: PropTypes.bool.isRequired,
 };

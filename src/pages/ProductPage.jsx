@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getItemFromId } from '../services/api';
 import Rating from '../components/Rating';
+import ProductDetails from '../components/ProductDetails';
 
 export default class ProductPage extends Component {
   constructor() {
@@ -36,11 +37,10 @@ export default class ProductPage extends Component {
     const { reviews, product, loading } = this.state;
     return (
       <>
-        <div>
-          {!loading
-        && <h2 data-testid="product-detail-name">{product.title}</h2>}
-
-        </div>
+      <div>
+        {!loading
+        && <ProductDetails product={ product } />}
+      </div>
         <Rating addReview={ this.addReview } />
         { reviews.map((review, index) => (
           <div key={ index }>
