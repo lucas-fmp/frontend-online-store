@@ -37,10 +37,10 @@ export default class ProductPage extends Component {
     const { reviews, product, loading } = this.state;
     return (
       <>
-      <div>
-        {!loading
+        <div>
+          {!loading
         && <ProductDetails product={ product } />}
-      </div>
+        </div>
         <Rating addReview={ this.addReview } />
         { reviews.map((review, index) => (
           <div key={ index }>
