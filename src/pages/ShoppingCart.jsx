@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import ProductCardCart from '../components/ProductCardCart';
 
 export default class ShoppingCart extends Component {
@@ -44,6 +45,12 @@ export default class ShoppingCart extends Component {
             </div>
           )
         }
+        <Link
+          to="/checkout"
+          data-testid="checkout-products"
+        >
+          Finalizar pedido
+        </Link>
       </div>
     );
   }

@@ -4,6 +4,7 @@ import './App.css';
 import Main from './pages/Main';
 import ProductPage from './pages/ProductPage';
 import ShoppingCart from './pages/ShoppingCart';
+import Checkout from './components/Checkout';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route exact path="/" component={ Main } />
         <Route exact path="/product/:id" component={ ProductPage } />
         <Route exact path="/shopping-cart" component={ ShoppingCart } />
+        <Route exact path="/checkout" component={ Checkout } />
       </Switch>
     </BrowserRouter>
   );
