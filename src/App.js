@@ -19,6 +19,4 @@ function App() {
   );
 }
 
-// initial commit
-
 export default App;

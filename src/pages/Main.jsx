@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Categorias from '../components/Categorias';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Products from '../components/Products';
+import logo from '../assets/logo.svg';
 
 export default class Main extends Component {
   constructor() {
@@ -46,28 +47,31 @@ export default class Main extends Component {
     } = this.state;
     return (
       <div>
-        <Link
-          to="/shopping-cart"
-          data-testid="shopping-cart-button"
-        >
-          Carrinho
-        </Link>
-        <div>
-          <Categorias onClickCategoryButton={ this.onClickCategoryButton } />
+        <div className="main-page-header">
+          <img src={ logo } alt="Logomarca" />
+          <input
+            type="text"
+            data-testid="query-input"
+            onChange={ this.onHandleChange }
+            value={ query }
+          />
+          <button
+            type="button"
+            data-testid="query-button"
+            onClick={ this.onHandleClick }
+          >
+            Search
+          </button>
+          <div>
+            <Categorias onClickCategoryButton={ this.onClickCategoryButton } />
+          </div>
+          <Link
+            to="/shopping-cart"
+            data-testid="shopping-cart-button"
+          >
+            Carrinho
+          </Link>
         </div>
-        <input
-          type="text"
-          data-testid="query-input"
-          onChange={ this.onHandleChange }
-          value={ query }
-        />
-        <button
-          type="button"
-          data-testid="query-button"
-          onClick={ this.onHandleClick }
-        >
-          Search
-        </button>
         <Products
           isFiltered={ isFiltered }
           searched={ searched }
