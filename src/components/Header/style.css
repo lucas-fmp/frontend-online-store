@@ -1,0 +1,87 @@
+.main-page-header {
+  background-color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  padding-inline: 30px;
+  height: 100px;
+  justify-content: space-between;
+}
+
+form {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  min-width: 100px;
+}
+
+form input {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  padding: 8px;
+  padding-right: 32px;
+}
+
+form button {
+  position: absolute;
+  top: 3px;
+  right: 0;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 2;
+  filter: invert(65%) sepia(9%) saturate(2833%) hue-rotate(107deg) brightness(97%) contrast(86%);
+}
+
+form button img {
+  height: 70%;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  text-decoration: none;
+}
+
+.text-logo-container {
+  text-align: center;
+}
+
+.text-logo-container h1 {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.text-logo-container h4 {
+  color: var(--secondary-green);
+}
+
+.cart-icon {
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(241deg) brightness(111%) contrast(103%);
+  width: 80%;
+}
+
+.cart-icon:hover {
+  filter: invert(53%) sepia(98%) saturate(298%) hue-rotate(107deg) brightness(97%) contrast(95%);
+  scale: 1.1;
+}
+
+.button-back {
+  display: flex;
+  gap: 8px;
+  color: var(--white);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+  background-color: transparent;
+}
+
+.button-back:hover {
+  filter: invert(38%) sepia(64%) saturate(468%) hue-rotate(107deg) brightness(92%) contrast(85%);
+  scale: 1.05;
+}

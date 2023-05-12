@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import ProductCard from './ProductCard';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
+import ProductCard from '../ProductCard/index';
+import './style.css';
 
 export default class Products extends Component {
   validationProducts = () => {
@@ -8,15 +10,45 @@ export default class Products extends Component {
     if (isFiltered) return filteredProducts;
     if (searched && products.length === 0) {
       return (
-        <div>Nenhum produto foi encontrado</div>
+        <div className="product-message">
+          <h3>
+            NENHUM PRODUTO
+            {' '}
+            <br />
+            {' '}
+            FOI ENCONTRADO
+          </h3>
+          <p>
+            Digite outro termo de pesquisa ou
+            {' '}
+            <br />
+            {' '}
+            escolha uma categoria.
+          </p>
+
+        </div>
       );
     }
     if (searched) return products;
     return (
       <div
         data-testid="home-initial-message"
+        className="product-message"
       >
-        Digite algum termo de pesquisa ou escolha uma categoria.
+        <h3>
+          VOCÊ AINDA NÃO
+          {' '}
+          <br />
+          {' '}
+          REALIZOU UMA BUSCA
+        </h3>
+        <p>
+          Digite algum termo de pesquisa ou
+          {' '}
+          <br />
+          {' '}
+          escolha uma categoria.
+        </p>
       </div>
     );
   };
@@ -40,11 +72,11 @@ export default class Products extends Component {
   render() {
     const result = this.validationProducts();
     return (
-      <div>
+      <div className="product-container">
         {
           Array.isArray(result) ? result
             .map(({ id, title, price, thumbnail, shipping }) => (
-              <div key={ id }>
+              <Link to={ `/product/${id}` } key={ id } className="product-card">
                 <ProductCard
                   key={ id }
                   id={ id }
@@ -61,7 +93,7 @@ export default class Products extends Component {
                 >
                   Adicionar ao carrinho
                 </button>
-              </div>
+              </Link>
             )) : result
         }
       </div>

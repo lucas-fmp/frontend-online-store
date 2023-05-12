@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { getCategories } from '../services/api';
-import CategoryCard from './CategoryCard';
+import { getCategories } from '../../services/api';
+import CategoryCard from '../CategoryCard/index';
+import './style.css';
 
 export default class Categorias extends Component {
   constructor() {
@@ -20,16 +21,20 @@ export default class Categorias extends Component {
     const { onClickCategoryButton } = this.props;
     const { categorias } = this.state;
     return (
-      <div>
-        {categorias.map((categoria) => (
-          <CategoryCard
-            category={ categoria.name }
-            key={ categoria.name }
-            id={ categoria.id }
-            onClickCategoryButton={ onClickCategoryButton }
-          />
-        ))}
-      </div>
+      <aside>
+        <h6>Categorias</h6>
+        <hr />
+        <ul>
+          {categorias.map((categoria) => (
+            <CategoryCard
+              category={ categoria.name }
+              key={ categoria.name }
+              id={ categoria.id }
+              onClickCategoryButton={ onClickCategoryButton }
+            />
+          ))}
+        </ul>
+      </aside>
     );
   }
 }
