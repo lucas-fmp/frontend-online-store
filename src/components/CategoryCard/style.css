@@ -1,0 +1,18 @@
+li {
+  margin: 5px 0;
+}
+
+li button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--gray);
+  text-align: left;
+}
+
+li button:hover {
+  color: var(--primary-blue);
+  scale: 1.05;
+  font-weight: 500;
+}

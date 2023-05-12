@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { getItemFromId } from '../services/api';
-import Rating from '../components/Rating';
-import ProductDetails from '../components/ProductDetails';
+import { getItemFromId } from '../../services/api';
+import Rating from '../../components/Rating';
+import ProductDetails from '../../components/ProductDetails/index';
+import Header from '../../components/Header';
 
 export default class ProductPage extends Component {
   constructor() {
@@ -36,10 +37,16 @@ export default class ProductPage extends Component {
   render() {
     const { reviews, product, loading } = this.state;
     return (
-      <>
+      <div>
         <div>
-          {!loading
-        && <ProductDetails product={ product } />}
+          {
+            !loading && (
+              <div>
+                <Header />
+                <ProductDetails product={ product } />
+              </div>
+            )
+          }
         </div>
         <Rating addReview={ this.addReview } />
         { reviews.map((review, index) => (
@@ -60,7 +67,7 @@ export default class ProductPage extends Component {
               {' '}
             </p>
           </div>))}
-      </>
+      </div>
     );
   }
 }

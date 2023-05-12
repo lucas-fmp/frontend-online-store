@@ -1,0 +1,17 @@
+aside {
+  width: 300px;
+  padding: 20px 40px;
+  background-color: var(--white);
+  height: fit-content;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 5px 0;
+}
+
+ul {
+  margin-top: 20px;
+}
+
+h6 {
+  margin-bottom: 20px;
+  font-weight: 700;
+}
